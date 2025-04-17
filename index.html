@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EmmieGraphic Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #FFD700;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #111, #222);
+      box-shadow: 0 0 20px #FFD700;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #FFD700;
+      text-shadow: 0 0 10px #FFD700;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #FFD700; }
+      to { text-shadow: 0 0 20px #fff176, 0 0 30px #FFD700; }
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #FFD70033;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #FFD700;
+      padding-left: 1rem;
+    }
+
+    .about ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+      list-style: square;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #222;
+      border: 2px solid #FFD70055;
+      padding: 1.5rem;
+      text-align: center;
+      color: #FFD700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #FFD70088;
+      background-color: #333;
+    }
+
+    .image-display {
+      display: none;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .image-display img {
+      width: 90%;
+      max-width: 600px;
+      border: 3px solid #FFD700;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 0 10px #FFD70088;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #111;
+      color: #888;
+      border-top: 1px solid #FFD70022;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EmmieGraphic</h1>
+    <p>Creative Visuals. Bold Designs. Unique Impact.</p>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Welcome to EmmieGraphic — your go-to source for bold and creative design work. I specialize in:</p>
+    <ul>
+      <li>Birthday Cards</li>
+      <li>Flyers & Posters</li>
+      <li>Thumbnail Designs</li>
+      <li>Logo Designs</li>
+       <li>Website Design</li>
+    </ul>
+  </section>
+
+  <section class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <div class="card" onclick="showImage('wedding')">Birthday Card</div>
+      <div class="card" onclick="showImage('flyer')">Flyers and Poster</div>
+      <div class="card" onclick="showImage('thumbnail')">YouTube Thumbnails</div>
+      <div class="card" onclick="showImage('logo')">Logo Designs</div>
+    </div>
+
+    <div class="image-display" id="imageDisplay">
+      <h3 id="imageTitle">Preview</h3>
+      <img id="previewImage" src="" alt="Design preview" />
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: emmanuelolabisi313@gmail.com</p>
+    <p>Phone: +234 916 516 3248</p>
+    <p>Facebook: Emmanuel Olabisi</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EmmieGraphic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showImage(type) {
+      const imageMap = {
+        wedding: {
+          title: "Birthday Card Sample",
+          url: "logo2.jpg"
+        },
+        flyer: {
+          title: "Flyer and poster Sample",
+          url: "logo1.jpg"
+        },
+        thumbnail: {
+          title: "YouTube Thumbnail Sample",
+          url: "logo4.jpg"
+        },
+        logo: {
+          title: "Logo Design Sample",
+          url: "logo3.jpg"
+        }
+      };
+
+      const display = document.getElementById("imageDisplay");
+      const img = document.getElementById("previewImage");
+      const title = document.getElementById("imageTitle");
+
+      img.src = imageMap[type].url;
+      title.innerText = imageMap[type].title;
+      display.style.display = "block";
+      window.scrollTo({ top: display.offsetTop - 50, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
